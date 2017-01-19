@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="expires" content="0"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta http-equiv="cache-control" content="no-cache"/>
+    <title>京东支付</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Lato', Calibri, Arial, sans-serif;
+        color: #fff;
+        background: #e74c3c;
+        background-origin: padding-box;
+    }
+
+    .nav {
+        width: 1000px;
+        height: 50px;
+        font: bold 0/50px 黑体;
+        color: white;
+        text-align: center;
+        margin: 20px auto 0;
+        background: #f65f57;
+        border-radius: 10px;
+        box-shadow: 0px 5px 0px #B0483F
+    }
+
+    .nav li {
+        position: relative;
+        display: inline-block;
+        padding: 0 120px;
+        font-size: 20px;
+        text-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+        list-style: none outside none;
+    }
+
+    .nav a {
+        line-height: none;
+        color: white;
+        text-decoration: none;
+        display: inline-block;
+        -webkit-transition: all 0.2s ease-in;
+        -moz-transition: all 0.2s ease-in;
+        -o-transition: all 0.2s ease-in;
+        -ms-transition: all 0.2s ease-in;
+        transition: all 0.2s ease-in;
+    }
+
+    .nav a:hover {
+        -webkit-transform: rotate(10deg);
+        -moz-transform: rotate(10deg);
+        -o-transform: rotate(10deg);
+        -ms-transform: rotate(10deg);
+        transform: rotate(20deg);
+    }
+
+    .main {
+        width: 1000px;
+        height: 500px;
+        border: 5px solid #f65f57;
+        margin: 40px auto 0;
+        border-radius: 10px;
+        box-shadow: 0px 5px 0px #B0483F;
+        overflow-y: scroll;
+    }
+
+    iframe {
+        width: 1000px;
+        height: 500px;
+        scrolling: "no";
+        frameborder: 0;
+    }
+
+    .content_0 {
+        width: 800px;
+        height: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .content_1 li {
+        list-style: none;
+    }
+
+    lable {
+        display: inline-block;
+        width: 170px;
+        font: bold 15px Arial;
+        color: #f65f57
+    }
+
+    input {
+        width: 600px;
+        border-radius: 5px
+    }
+
+    .content {
+        padding: 10px;
+        width: 900px;
+        height: 600px;
+        margin: 50px auto;
+        background-color: rgba(255, 255, 255, 0.7);
+        border-radius: 10%
+    }
+
+    .btn {
+        width: 770px;
+        height: 50px;
+        color: white;
+        background: #f65f57;
+        border-radius: 10px;
+        font-size: 16pz;
+        font-family: "Arial Black";
+        font-weight: bolder;
+        margin-top: 5px
+    }
+
+    li label {
+        display: inline-block;
+        width: 120px;
+        font: bold 15px Arial;
+        color: #f65f57
+    }
+
+    .content_1 {
+        width: 400px;
+        margin: auto center;
+    }
+
+    .btn1 {
+        margin-top: 50px;
+        width: 770px;
+        height: 50px;
+        color: white;
+        background: #f65f57;
+        border-radius: 10px;
+        font-size: 16pz;
+        font-family: "Arial Black";
+        font-weight: bolder;
+    }
+</style>
+<body onload="autosubmit()">
+<form action="#springUrl('clientOrder.htm')" method="post" target="_blank" id="batchForm">
+
+            <input type="txt" name="version" value="$!{jdPayOrder.version}"> <br/>
+            <input type="txt" name="merchant" value="$!{jdPayOrder.merchant}"> <br/>
+            <input type="txt" name="device" value="$!{jdPayOrder.device}"> <br/>
+            <input type="txt" name="tradeNum" value="$!{jdPayOrder.tradeNum}"> <br/>
+            <input type="txt" name="tradeName" value="$!{jdPayOrder.tradeName}"> <br/>
+            <input type="txt" name="tradeDesc" value="$!{jdPayOrder.tradeDesc}"> <br/>
+            <input type="txt" name="tradeTime" value="$!{jdPayOrder.tradeTime}"> <br/>
+            <input type="txt" name="amount" value="$!{jdPayOrder.amount}"> <br/>
+            <input type="txt" name="currency" value="$!{jdPayOrder.currency}"> <br/>
+            <input type="txt" name="note" value="$!{jdPayOrder.note}"> <br/>
+            <input type="txt" name="callbackUrl" value="$!{jdPayOrder.callbackUrl}"> <br/>
+            <input type="txt" name="notifyUrl" value="$!{jdPayOrder.notifyUrl}"> <br/>
+            <input type="txt" name="ip" value="$!{jdPayOrder.ip}"> <br/>
+            <input type="txt" name="userType" value=""> <br/>
+            <input type="txt" name="userId" value=""> <br/>
+            <input type="txt" name="expireTime" value=""> <br/>
+            <input type="txt" name="industryCategoryCode" value=""> <br/>
+            <input type="txt" name="orderType" value="$!{jdPayOrder.orderType}"> <br/>
+            <input type="txt" name="specCardNo" value=""> <br/>
+            <input type="txt" name="specId" value=""> <br/>
+            <input type="txt" name="specName" value=""> <br/>
+            <input type="txt" name="vendorId" value=""> <br/>
+            <input type="txt" name="goodsInfo" value=""> <br/>
+            <input type="txt" name="orderGoodsNum" value=""> <br/>
+            <input type="txt" name="receiverInfo" value=""> <br/>
+            <input type="txt" name="termInfo" value=""> <br/>
+            <input type="txt" name="saveUrl" value="$!{jdPayOrder.saveUrl}"> <br/>
+    <input
+            type="submit" value="京东支付" id="showlayerButton" class="btn">
+</form>
+<script>
+    function autosubmit() {
+//        document.getElementById("batchForm").submit();
+    }
+</script>
+</body>
+</html>

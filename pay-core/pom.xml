@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>pay</artifactId>
+        <groupId>com.pay</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>pay-core</artifactId>
+    <properties>
+        <start-class>com.pay.core.Application</start-class>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.pay</groupId>
+            <artifactId>pay-common</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.39</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.0.25</version>
+        </dependency>
+
+        <!--——————————京东使用 start ———————————-->
+        <dependency>
+            <groupId>pay-gate-signature</groupId>
+            <artifactId>pay-gate-signature</artifactId>
+            <version>1.0.4</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/lib/pay-gate-signature-1.0.4.jar</systemPath>
+        </dependency>
+        <!--——————————京东使用 end ———————————-->
+
+        <!--——————————上海银行使用 start ———————————-->
+        <dependency>
+            <groupId>KoaliiSvs</groupId>
+            <artifactId>KoaliiSvs</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/lib/KoaliiSvs_v1_0.jar</systemPath>
+        </dependency>
+        <!--——————————上海银行使用 end ———————————-->
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
