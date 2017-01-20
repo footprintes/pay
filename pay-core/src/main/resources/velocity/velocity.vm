@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BOSFXII xmlns="http://www.bankofshanghai.com/BOSFX/2010/08"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.bankofshanghai.com/BOSFX/2010/08 BOSFX2.0.xsd">
+<${itfName}Rq>
+<CommonRqHdr>
+    #foreach($param in ${commonRqHdr.keySet()})
+        <$param>${commonRqHdr.get($param)}</$param>
+    #end
+    </CommonRqHdr>
+    #foreach($param in ${fieldValueMap.keySet()})
+        <$param>${fieldValueMap.get($param)}</$param>
+    #end
+    <KoalB64Cert>${koalB64Cert}</KoalB64Cert>
+    <Signature>${signature}</Signature>
+    </${itfName}Rq>
+</BOSFXII>
