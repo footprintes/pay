@@ -1,5 +1,5 @@
 import com.alibaba.fastjson.JSON;
-import com.pay.api.domain.sys.HelloService;
+import com.pay.api.service.sys.HelloService;
 import com.pay.customer.Application;
 import com.weibo.api.motan.config.springsupport.annotation.MotanReferer;
 import org.junit.Test;

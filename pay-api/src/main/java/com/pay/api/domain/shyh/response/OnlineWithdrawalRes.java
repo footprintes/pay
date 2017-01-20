@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlAttribute;
  * @author 张峰 zfvip_it@163.com
  * @createTime: 2017/1/19 13:42
  */
-public class OnlineWithdrawalRes {
+public class OnlineWithdrawalRes extends BaseRes{
 
     /**
      * 交易日期
@@ -54,11 +54,6 @@ public class OnlineWithdrawalRes {
      * 交易备注
      */
     private String memoInfo;
-
-    /**
-     * 签名数据
-     */
-    private String signature;
 
 
     public String getSubAcctNo() {
@@ -140,14 +135,5 @@ public class OnlineWithdrawalRes {
     @XmlAttribute(name = "BizDate")
     public void setBizDate(String bizDate) {
         this.bizDate = bizDate;
-    }
-
-    public String getSignature() {
-        return signature;
-    }
-
-    @XmlAttribute(name = "Signature")
-    public void setSignature(String signature) {
-        this.signature = signature;
     }
 }

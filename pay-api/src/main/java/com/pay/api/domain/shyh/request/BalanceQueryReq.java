@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlAttribute;
  * @author 张峰 zfvip_it@163.com
  * @createTime: 2017/1/19 14:29
  */
-public class BalanceQueryReq extends BaseReq{
+public class BalanceQueryReq{
 
     /**
      * 余额理财子账号
@@ -19,7 +19,6 @@ public class BalanceQueryReq extends BaseReq{
         return subAcctNo;
     }
 
-    @XmlAttribute(name = "SubAcctNo")
     public void setSubAcctNo(String subAcctNo) {
         this.subAcctNo = subAcctNo;
     }

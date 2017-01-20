@@ -1,6 +1,7 @@
 import com.koalii.svs.SvsSign;
 import org.junit.Test;
 
+import javax.net.ssl.HttpsURLConnection;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -15,30 +16,30 @@ public class HttpUtil {
 
     public static String http(String url, Map<String, String> params) {
         URL u = null;
-        HttpURLConnection con = null;
+        HttpsURLConnection con = null;
         // 构建请求参数  
         StringBuffer sb = new StringBuffer();
-        if (params != null) {
-            for (Entry<String, String> e : params.entrySet()) {
-                sb.append(e.getKey());
-                sb.append("=");
-                sb.append(e.getValue());
-                sb.append("&");
-            }
-            sb.substring(0, sb.length() - 1);
-        }
-//        sb.append("?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
-//                "<BOSFXII xmlns=\"http://www.bankofshanghai.com/BOSFX/2010/08\">\n" +
-//                "\t<XTR0001Rq>\n" +
-//                "\t\t<CommonRqHdr>\n" +
-//                "\t\t\t<SPName>CBIB</SPName>\n" +
-//                "\t\t\t<RqUID>2016122009592668518832</RqUID>\n" +
-//                "\t\t\t<ClearDate>20161220</ClearDate>\n" +
-//                "\t\t\t<TranDate>20161220</TranDate>\n" +
-//                "\t\t\t<TranTime>095926</TranTime>\n" +
-//                "\t\t\t<ChannelId>XTR</ChannelId>\n" +
-//                "\t\t</CommonRqHdr>\n" +
-//                "\t\t<Occupation/>\n" +
+//        if (params != null) {
+//            for (Entry<String, String> e : params.entrySet()) {
+//                sb.append(e.getKey());
+//                sb.append("=");
+//                sb.append(e.getValue());
+//                sb.append("&");
+//            }
+//            sb.substring(0, sb.length() - 1);
+//        }
+        sb.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
+                "<BOSFXII xmlns=\"http://www.bankofshanghai.com/BOSFX/2010/08\">\n" +
+                "\t<XTR0001Rq>\n" +
+                "\t\t<CommonRqHdr>\n" +
+                "\t\t\t<SPName>CBIB</SPName>\n" +
+                "\t\t\t<RqUID>2016122009592668518832</RqUID>\n" +
+                "\t\t\t<ClearDate>20170120</ClearDate>\n" +
+                "\t\t\t<TranDate>20170120</TranDate>\n" +
+                "\t\t\t<TranTime>095926</TranTime>\n" +
+                "\t\t\t<ChannelId>XTR</ChannelId>\n" +
+                "\t\t</CommonRqHdr>\n" +
+                "\t\t<OriRqUID>11111111111111111111111<OriRqUID/>\n" +
 //                "\t\t<HomeAddr/>\n" +
 //                "\t\t<Email/>\n" +
 //                "\t\t<FundCode>000359</FundCode>\n" +
@@ -72,8 +73,8 @@ public class HttpUtil {
 //                "\t\t<Signature>xCaBhJrMlHzvUU+OstjWCSCitdKy3WUkHbPX/XJtgfkHnzl7JJfXTB5wgNpzqpvKzFZEWd2UKnX0\n" +
 //                "\t\t\t62UqWABcgYhvtqnYrBWa6X54oghGDVUB/kyctKldumN659vrYjjLduIjTFfksujjTRuF7XNTGAkD\n" +
 //                "\t\tEmjhkM3XvZDGKc4CqLY=</Signature>\n" +
-//                "\t</XTR0001Rq>\n" +
-//                "</BOSFXII>");
+                "\t</XTR0001Rq>\n" +
+                "</BOSFXII>");
         System.out.println("send_url:" + url);
         System.out.println("send_data:" + sb.toString());
         // 读取返回内容
@@ -81,7 +82,9 @@ public class HttpUtil {
         // 尝试发送请求  
         try {
             u = new URL(url);
-            con = (HttpURLConnection) u.openConnection();
+//            System.setProperty( "javax.net.ssl.trustStore", "D:\\tools\\Java\\jdk1.7.0_79\\jre7\\bin\\afe_client.jks");
+//            System.setProperty( "javax.net.ssl.trustStorePassword", "123456");
+            con = (HttpsURLConnection) u.openConnection();
             //// POST 只能为大写，严格限制，post会不识别  
             con.setRequestMethod("POST");
             con.setDoOutput(true);
@@ -142,7 +145,7 @@ public class HttpUtil {
         parames.put("Occupation", "");
         // 如果地址栏中有aaa这个参数，则默认选择地址栏的，如果没有则选择添加的参数
 //        parames.put("aaa", "aaa_value");
-        System.out.println(HttpUtil.http("https://203.156.238.218:30150/ib-rest/gateway/XTR0001", getSignature(parames)));
+        System.out.println(HttpUtil.http("https://CN:30150/ib-rest/gateway", getSignature(parames)));
     }
 
     /**

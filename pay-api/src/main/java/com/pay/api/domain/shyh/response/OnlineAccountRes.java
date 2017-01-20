@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlAttribute;
  * @author 张峰 zfvip_it@163.com
  * @createTime: 2017/1/19 11:46
  */
-public class OnlineAccountRes {
+public class OnlineAccountRes extends BaseRes{
 
     /**
      * 合作方客户账号
@@ -209,14 +209,5 @@ public class OnlineAccountRes {
     @XmlAttribute(name = "FundTxnAcct")
     public void setFundTxnAcct(String fundTxnAcct) {
         this.fundTxnAcct = fundTxnAcct;
-    }
-
-    public String getSignature() {
-        return signature;
-    }
-
-    @XmlAttribute(name = "Signature")
-    public void setSignature(String signature) {
-        this.signature = signature;
     }
 }

@@ -1,4 +1,5 @@
 import com.alibaba.fastjson.JSON;
+import org.apache.commons.beanutils.BeanUtils;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
@@ -18,6 +19,7 @@ import java.util.List;
  * @createTime: 2017/1/19 9:42
  */
 public class Test {
+
 
     public static void main(String[] args) throws Exception {
 

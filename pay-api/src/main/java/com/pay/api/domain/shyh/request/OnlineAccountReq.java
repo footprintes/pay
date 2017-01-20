@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlAttribute;
  * @author 张峰 zfvip_it@163.com
  * @createTime: 2017/1/19 11:46
  */
-public class OnlineAccountReq extends BaseReq {
+public class OnlineAccountReq {
 
     /**
      * 合作方客户账号
@@ -79,7 +79,6 @@ public class OnlineAccountReq extends BaseReq {
         return coopCustNo;
     }
 
-    @XmlAttribute(name = "CoopCustNo")
     public void setCoopCustNo(String coopCustNo) {
         this.coopCustNo = coopCustNo;
     }
@@ -88,7 +87,6 @@ public class OnlineAccountReq extends BaseReq {
         return productCd;
     }
 
-    @XmlAttribute(name = "ProductCd")
     public void setProductCd(String productCd) {
         this.productCd = productCd;
     }
@@ -97,7 +95,6 @@ public class OnlineAccountReq extends BaseReq {
         return custName;
     }
 
-    @XmlAttribute(name = "CustName")
     public void setCustName(String custName) {
         this.custName = custName;
     }
@@ -106,7 +103,6 @@ public class OnlineAccountReq extends BaseReq {
         return idNo;
     }
 
-    @XmlAttribute(name = "IdNo")
     public void setIdNo(String idNo) {
         this.idNo = idNo;
     }
@@ -115,7 +111,6 @@ public class OnlineAccountReq extends BaseReq {
         return expDay;
     }
 
-    @XmlAttribute(name = "ExpDay")
     public void setExpDay(String expDay) {
         this.expDay = expDay;
     }
@@ -124,7 +119,6 @@ public class OnlineAccountReq extends BaseReq {
         return mobllePhone;
     }
 
-    @XmlAttribute(name = "MobllePhone")
     public void setMobllePhone(String mobllePhone) {
         this.mobllePhone = mobllePhone;
     }
@@ -133,7 +127,6 @@ public class OnlineAccountReq extends BaseReq {
         return bindCardNo;
     }
 
-    @XmlAttribute(name = "BindCardNo")
     public void setBindCardNo(String bindCardNo) {
         this.bindCardNo = bindCardNo;
     }
@@ -142,7 +135,6 @@ public class OnlineAccountReq extends BaseReq {
         return reservedPhone;
     }
 
-    @XmlAttribute(name = "ReservedPhone")
     public void setReservedPhone(String reservedPhone) {
         this.reservedPhone = reservedPhone;
     }
@@ -151,7 +143,6 @@ public class OnlineAccountReq extends BaseReq {
         return sign;
     }
 
-    @XmlAttribute(name = "Sign")
     public void setSign(String sign) {
         this.sign = sign;
     }
@@ -160,7 +151,6 @@ public class OnlineAccountReq extends BaseReq {
         return fundCode;
     }
 
-    @XmlAttribute(name = "FundCode")
     public void setFundCode(String fundCode) {
         this.fundCode = fundCode;
     }
@@ -169,7 +159,6 @@ public class OnlineAccountReq extends BaseReq {
         return email;
     }
 
-    @XmlAttribute(name = "Email")
     public void setEmail(String email) {
         this.email = email;
     }
@@ -178,7 +167,6 @@ public class OnlineAccountReq extends BaseReq {
         return homeAddr;
     }
 
-    @XmlAttribute(name = "HomeAddr")
     public void setHomeAddr(String homeAddr) {
         this.homeAddr = homeAddr;
     }
@@ -187,7 +175,6 @@ public class OnlineAccountReq extends BaseReq {
         return occupation;
     }
 
-    @XmlAttribute(name = "Occupation")
     public void setOccupation(String occupation) {
         this.occupation = occupation;
     }

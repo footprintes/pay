@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlAttribute;
  * @author 张峰 zfvip_it@163.com
  * @createTime: 2017/1/19 13:42
  */
-public class OnlineWithdrawalReq extends BaseReq {
+public class OnlineWithdrawalReq {
 
     /**
      * 余额理财子帐号
@@ -59,7 +59,6 @@ public class OnlineWithdrawalReq extends BaseReq {
         return subAcctNo;
     }
 
-    @XmlAttribute(name = "SubAcctNo")
     public void setSubAcctNo(String subAcctNo) {
         this.subAcctNo = subAcctNo;
     }

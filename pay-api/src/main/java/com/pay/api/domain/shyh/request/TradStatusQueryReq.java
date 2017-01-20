@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlAttribute;
  * @author 张峰 zfvip_it@163.com
  * @createTime: 2017/1/19 15:24
  */
-public class TradStatusQueryReq extends BaseReq{
+public class TradStatusQueryReq {
 
     /**
      * 原交易流水号
@@ -19,7 +19,6 @@ public class TradStatusQueryReq extends BaseReq{
         return oriRqUID;
     }
 
-    @XmlAttribute(name = "OriRqUID")
     public void setOriRqUID(String oriRqUID) {
         this.oriRqUID = oriRqUID;
     }

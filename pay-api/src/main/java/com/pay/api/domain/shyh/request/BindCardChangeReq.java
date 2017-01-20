@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlAttribute;
  * @author 张峰 zfvip_it@163.com
  * @createTime: 2017/1/19 13:25
  */
-public class BindCardChangeReq extends BaseReq {
+public class BindCardChangeReq {
 
     /**
      * 子账号
@@ -59,7 +59,6 @@ public class BindCardChangeReq extends BaseReq {
         return subAcctNo;
     }
 
-    @XmlAttribute(name = "SubAcctNo")
     public void setSubAcctNo(String subAcctNo) {
         this.subAcctNo = subAcctNo;
     }
@@ -68,7 +67,6 @@ public class BindCardChangeReq extends BaseReq {
         return productCd;
     }
 
-    @XmlAttribute(name = "ProductCd")
     public void setProductCd(String productCd) {
         this.productCd = productCd;
     }
@@ -77,7 +75,6 @@ public class BindCardChangeReq extends BaseReq {
         return custName;
     }
 
-    @XmlAttribute(name = "CustName")
     public void setCustName(String custName) {
         this.custName = custName;
     }
@@ -86,7 +83,6 @@ public class BindCardChangeReq extends BaseReq {
         return idNo;
     }
 
-    @XmlAttribute(name = "IdNo")
     public void setIdNo(String idNo) {
         this.idNo = idNo;
     }
@@ -95,7 +91,6 @@ public class BindCardChangeReq extends BaseReq {
         return bindCardNo;
     }
 
-    @XmlAttribute(name = "BindCardNo")
     public void setBindCardNo(String bindCardNo) {
         this.bindCardNo = bindCardNo;
     }
@@ -104,7 +99,6 @@ public class BindCardChangeReq extends BaseReq {
         return newCardNo;
     }
 
-    @XmlAttribute(name = "NewCardNo")
     public void setNewCardNo(String newCardNo) {
         this.newCardNo = newCardNo;
     }
@@ -113,7 +107,6 @@ public class BindCardChangeReq extends BaseReq {
         return reservedPhone;
     }
 
-    @XmlAttribute(name = "ReservedPhone")
     public void setReservedPhone(String reservedPhone) {
         this.reservedPhone = reservedPhone;
     }
@@ -122,7 +115,6 @@ public class BindCardChangeReq extends BaseReq {
         return newReservedPhone;
     }
 
-    @XmlAttribute(name = "NewReservedPhone")
     public void setNewReservedPhone(String newReservedPhone) {
         this.newReservedPhone = newReservedPhone;
     }
@@ -131,7 +123,6 @@ public class BindCardChangeReq extends BaseReq {
         return modiType;
     }
 
-    @XmlAttribute(name = "ModiType")
     public void setModiType(String modiType) {
         this.modiType = modiType;
     }

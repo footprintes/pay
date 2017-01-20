@@ -1,6 +1,6 @@
 package com.pay.customer.controller.jd;
 
-import com.pay.api.domain.sys.HelloService;
+import com.pay.api.service.sys.HelloService;
 import com.weibo.api.motan.config.springsupport.annotation.MotanReferer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;

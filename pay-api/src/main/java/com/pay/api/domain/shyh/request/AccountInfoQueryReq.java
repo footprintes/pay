@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlAttribute;
  * @author 张峰 zfvip_it@163.com
  * @createTime: 2017/1/19 15:34
  */
-public class AccountInfoQueryReq extends BaseReq{
+public class AccountInfoQueryReq {
 
     /**
      * E账户主账户号
@@ -34,7 +34,6 @@ public class AccountInfoQueryReq extends BaseReq{
         return eacctNo;
     }
 
-    @XmlAttribute(name = "EacctNo")
     public void setEacctNo(String eacctNo) {
         this.eacctNo = eacctNo;
     }
@@ -43,7 +42,6 @@ public class AccountInfoQueryReq extends BaseReq{
         return idNo;
     }
 
-    @XmlAttribute(name = "IdNo")
     public void setIdNo(String idNo) {
         this.idNo = idNo;
     }
@@ -52,7 +50,6 @@ public class AccountInfoQueryReq extends BaseReq{
         return productParam;
     }
 
-    @XmlAttribute(name = "ProductParam")
     public void setProductParam(String productParam) {
         this.productParam = productParam;
     }
@@ -61,7 +58,6 @@ public class AccountInfoQueryReq extends BaseReq{
         return subAcctNo;
     }
 
-    @XmlAttribute(name = "SubAcctNo")
     public void setSubAcctNo(String subAcctNo) {
         this.subAcctNo = subAcctNo;
     }

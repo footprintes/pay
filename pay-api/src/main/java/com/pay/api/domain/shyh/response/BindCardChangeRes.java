@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlAttribute;
  * @author 张峰 zfvip_it@163.com
  * @createTime: 2017/1/19 13:25
  */
-public class BindCardChangeRes {
+public class BindCardChangeRes extends BaseRes{
 
     /**
      * 子账号
@@ -34,11 +34,6 @@ public class BindCardChangeRes {
      * 新银行卡预留手机号
      */
     private String newReservedPhone;
-
-    /**
-     * 签名数据
-     */
-    private String signature;
 
     public String getSubAcctNo() {
         return subAcctNo;
@@ -83,14 +78,5 @@ public class BindCardChangeRes {
     @XmlAttribute(name = "NewReservedPhone")
     public void setNewReservedPhone(String newReservedPhone) {
         this.newReservedPhone = newReservedPhone;
-    }
-
-    public String getSignature() {
-        return signature;
-    }
-
-    @XmlAttribute(name = "Signature")
-    public void setSignature(String signature) {
-        this.signature = signature;
     }
 }

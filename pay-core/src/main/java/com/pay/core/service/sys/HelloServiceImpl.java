@@ -1,6 +1,6 @@
 package com.pay.core.service.sys;
 
-import com.pay.api.domain.sys.HelloService;
+import com.pay.api.service.sys.HelloService;
 import com.weibo.api.motan.config.springsupport.annotation.MotanService;
 
 /**

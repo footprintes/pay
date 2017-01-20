@@ -1,4 +1,4 @@
-package com.pay.api.domain.sys;
+package com.pay.api.service.sys;
 
 /**
  * <p>类说明</p>

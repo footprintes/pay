@@ -1,7 +1,5 @@
 package com.pay.api.domain.shyh.response;
 
-import com.pay.api.domain.shyh.request.BaseReq;
-
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import java.util.List;
@@ -12,7 +10,7 @@ import java.util.List;
  * @author 张峰 zfvip_it@163.com
  * @createTime: 2017/1/19 15:34
  */
-public class AccountInfoQueryRes extends BaseReq {
+public class AccountInfoQueryRes extends BaseRes {
 
     /**
      * 客户身份证
