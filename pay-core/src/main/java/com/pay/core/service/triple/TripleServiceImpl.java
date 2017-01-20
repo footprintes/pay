@@ -28,4 +28,17 @@ public class TripleServiceImpl implements TripleService {
         TripleDes.makeZipfile( threeDesKey,  inFilePath,  zipFileName, suffixName);
         return true;
     }
+
+    /**
+     * 解压文件并解密
+     * @param threeDesKey 解密密钥
+     * @param zipFilePath 要解压的文件
+     * @param outFilePath 解压后的文件
+     * @param suffixName 解压的文件的后缀名
+     * @throws Exception
+     */
+    public boolean makeUnZipfile(String threeDesKey, String zipFilePath, String outFilePath,String suffixName)throws Exception {
+        TripleDes.makeUnZipfile( threeDesKey,  zipFilePath,  outFilePath, suffixName);
+        return true;
+    }
 }

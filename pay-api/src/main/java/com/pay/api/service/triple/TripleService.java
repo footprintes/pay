@@ -20,4 +20,14 @@ public interface TripleService {
      * @throws Exception
      */
     boolean makeZipfile(String threeDesKey, String inFilePath, String zipFileName,String suffixName)throws Exception;
+
+    /**
+     * 解压文件并解密
+     * @param threeDesKey 解密密钥
+     * @param zipFilePath 要解压的文件
+     * @param outFilePath 解压后的文件
+     * @param suffixName 解压的文件的后缀名
+     * @throws Exception
+     */
+    boolean makeUnZipfile(String threeDesKey, String zipFilePath, String outFilePath,String suffixName)throws Exception;
 }

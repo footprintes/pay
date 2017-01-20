@@ -57,60 +57,60 @@ public class TripleDes {
 //
 //
 //
-    /**
-     * 压缩文件
-     * @param fileAllNameTxt 需要压缩的文件全路径
-     *        fileAllNameZip 压缩好的文件的全路径
-     * @return
-     * @throws IOException
-     */
-    public static File condenseFile(String threeDesKey, String fileAllNameTxt,String fileAllNameZip) throws Exception {
-
-
-        File file = new File(fileAllNameTxt);
-        File zFile = new File(fileAllNameZip);
-
-        if (!file.exists()) {
-            throw new Exception("文件不存在");
-        } else {
-            if (!zFile.exists()) {
-                zFile.createNewFile();
-            }
-            // 创建文件输入流对象
-            FileInputStream in = new FileInputStream(file);
-            // 创建文件输出流对象
-            FileOutputStream out = new FileOutputStream(zFile);
-
-            int number = 0;
-            byte[] buffer = new byte[512];
-            while ((number = in.read(buffer)) != -1) {
-                out.write(buffer, 0, number);
-            }
-            out.close();
-            in.close();
-
-            OutputStream encryptOutPutStream = TripleDesTool.encryptMode(threeDesKey, out);
-            // 设置流以压缩模式输出
-            ZipOutputStream zipOutPutStream = new ZipOutputStream(encryptOutPutStream);
-            zipOutPutStream.putNextEntry(new ZipEntry(file.getName()));
-//            // 创建ZIP数据输出流对象
-//            ZipOutputStream zipOut = new ZipOutputStream(out);
-//            // 创建指向压缩原始文件的入口
-////            ZipEntry entry = new ZipEntry(StringUtils.substring(file.getName(), 0, file.getName().length()-4));
-//            ZipEntry entry = new ZipEntry(file.getName().substring( 0, file.getName().length()-4));
-//            zipOut.putNextEntry(entry);
-//            // 向压缩文件中输出数据
+//    /**
+//     * 压缩文件
+//     * @param fileAllNameTxt 需要压缩的文件全路径
+//     *        fileAllNameZip 压缩好的文件的全路径
+//     * @return
+//     * @throws IOException
+//     */
+//    public static File condenseFile(String threeDesKey, String fileAllNameTxt,String fileAllNameZip) throws Exception {
+//
+//
+//        File file = new File(fileAllNameTxt);
+//        File zFile = new File(fileAllNameZip);
+//
+//        if (!file.exists()) {
+//            throw new Exception("文件不存在");
+//        } else {
+//            if (!zFile.exists()) {
+//                zFile.createNewFile();
+//            }
+//            // 创建文件输入流对象
+//            FileInputStream in = new FileInputStream(file);
+//            // 创建文件输出流对象
+//            FileOutputStream out = new FileOutputStream(zFile);
+//
 //            int number = 0;
 //            byte[] buffer = new byte[512];
 //            while ((number = in.read(buffer)) != -1) {
-//                zipOut.write(buffer, 0, number);
+//                out.write(buffer, 0, number);
 //            }
-//            zipOut.close();
 //            out.close();
 //            in.close();
-        }
-        return zFile;
-    }
+//
+//            OutputStream encryptOutPutStream = TripleDesTool.encryptMode(threeDesKey, out);
+//            // 设置流以压缩模式输出
+//            ZipOutputStream zipOutPutStream = new ZipOutputStream(encryptOutPutStream);
+//            zipOutPutStream.putNextEntry(new ZipEntry(file.getName()));
+//            // 创建ZIP数据输出流对象
+//            ZipOutputStream zipOut = new ZipOutputStream(out);
+////            // 创建指向压缩原始文件的入口
+//////            ZipEntry entry = new ZipEntry(StringUtils.substring(file.getName(), 0, file.getName().length()-4));
+////            ZipEntry entry = new ZipEntry(file.getName().substring( 0, file.getName().length()-4));
+////            zipOut.putNextEntry(entry);
+////            // 向压缩文件中输出数据
+////            int number = 0;
+////            byte[] buffer = new byte[512];
+////            while ((number = in.read(buffer)) != -1) {
+////                zipOut.write(buffer, 0, number);
+////            }
+////            zipOut.close();
+////            out.close();
+////            in.close();
+//        }
+//        return zFile;
+//    }
 //
 //    /**
 //     * 解压zip文件（光大）
@@ -382,13 +382,13 @@ public class TripleDes {
 //        return des;
 //    }
 //
-    /**
-     * 该方法对一个加密的Zip文件进行解密输出。
-     *
-     * @param threeDesKey
-     * @throws Exception
-     * @throws FileNotFoundException
-     */
+//    /**
+//     * 该方法对一个加密的Zip文件进行解密输出。
+//     *
+//     * @param threeDesKey
+//     * @throws Exception
+//     * @throws FileNotFoundException
+//     */
 //    public static File makeUnZipfile(String threeDesKey, String fileAllNameZip, String fileAllNameTxt) throws IOException {
 //        log.info("将文件：{}解密到：{}，开始", fileAllNameZip,fileAllNameTxt);
 //        // 对一个加密的Zip文件进行解密输出。
@@ -433,59 +433,113 @@ public class TripleDes {
 //        return new File(fileAllNameTxt);
 //    }
 
-    public static File makeUnZipfile(String threeDesKey, String fileAllNameZip, String fileAllNameTxt) throws IOException {
-        log.info("将文件：{}解密到：{}，开始", fileAllNameZip,fileAllNameTxt);
-        // 对一个加密的Zip文件进行解密输出。
-        InputStream in = null;
-        FileOutputStream fos = null;
-        FileInputStream fis = null;
-        try {
-            //threeDesKey = null == threeDesKey || "".equals(threeDesKey.trim()) ? PropertyUtil.getProperty("threeDesKey") : threeDesKey;
-            fis = new FileInputStream(fileAllNameZip);
-            in = alipayDownloadInputStream(threeDesKey, fis);
-            fos = new FileOutputStream(new File(fileAllNameTxt));
-            IOUtils.copy(in, fos);
-
-        } catch (FileNotFoundException e) {
-            log.error("文件解密解压失败,文件路径：" + fileAllNameZip + "解密路径：" + fileAllNameTxt);
-            log.error("文件解密解压失败", e);
-            throw e;
-        } catch (IOException e) {
-            log.error("文件解密解压失败,文件路径：" + fileAllNameZip + "解密路径：" + fileAllNameTxt);
-            log.error("文件解密解压失败", e);
-            throw e;
-        } catch (Exception e) {
-            log.error("文件解密解压失败", e);
-            throw new IOException();
-        }finally {
-            try {
-                if (null != fos) {
-                    fos.close();
-                }
-                if (null != in) {
-                    in.close();
-                }
-                if (null != fis) {
-                    fis.close();
-                }
-            } catch (IOException e) {
-                log.error("文件解密失败，关闭流失败");
-                throw e;
-            }
+    /**
+     * 解压文件并解密
+     * @param threeDesKey
+     * @param zipFilePath
+     * @param outFilePath
+     * @param suffixName
+     * @throws Exception
+     */
+    public static void makeUnZipfile(String threeDesKey, String zipFilePath, String outFilePath,String suffixName) throws Exception {
+        log.info("将文件：{}解压后解密", zipFilePath);
+        if("zip".equals(suffixName)){
+            unZipFile( zipFilePath, outFilePath+"_temp");
+            unEntryFile( threeDesKey, outFilePath+"_temp", outFilePath);
         }
-        log.info("将文件：{}解密到：{}，完成", fileAllNameZip,fileAllNameTxt);
-        return new File(fileAllNameTxt);
+        deleteFile(outFilePath+"_temp");
+        log.info("将文件：{}解压后解密", zipFilePath);
     }
 
-    private static InputStream alipayDownloadInputStream(String threeDesKey, InputStream fileInputStream) throws IOException {
-        InputStream decryptInputStream = TripleDesTool.decryptMode(threeDesKey, fileInputStream);
-        // 设置流以解密模式输出
-        ZipInputStream zipIn = new ZipInputStream(decryptInputStream);
-        if (zipIn.getNextEntry() == null) {
-            return null;
+    /**
+     * 解压文件(传递路径)
+     * @param zipFilePath 待解压的ZIP文件路径
+     * @param outFilePath 解压后的文件路径
+     * @throws Exception
+     */
+    public static void unZipFile(String zipFilePath,String outFilePath)throws Exception{
+        File outFile = new File(outFilePath);
+        if (!outFile.exists()) {
+            outFile.createNewFile();
         }
-        return zipIn;
+        ZipFile zFile = new ZipFile(zipFilePath);
+        unZipFile(zFile,outFile);
     }
+
+    /**
+     * 解压文件(传递文件)
+     * @param zipFile 待解压的ZIP文件
+     * @param outFile 解压后的文件
+     * @throws Exception
+     */
+    public static void unZipFile(ZipFile zipFile,File outFile)throws Exception{
+        ZipEntry zEntry=zipFile.entries().nextElement();
+        if(zEntry==null){
+            throw new Exception("压缩文件损坏或者压缩文件是空的");
+        }
+        InputStream zis=zipFile.getInputStream(zEntry);
+        FileOutputStream outFos = new FileOutputStream(outFile);
+        if (!outFile.exists()) {
+            outFile.createNewFile();
+        }
+        int number = 0;
+        byte[] buffer = new byte[512];
+        while ((number = zis.read(buffer)) != -1) {
+            outFos.write(buffer, 0, number);
+        }
+        outFos.close();
+        zis.close();
+    }
+
+    /**
+     * 解密文件(传递路径)
+     * @param threeDesKey 密钥
+     * @param inFilePath 要解密的文件路径
+     * @param outFilePath 解密输出文件路径(如果没有该文件,则新建此文件)
+     * @throws Exception
+     */
+    public static void unEntryFile(String threeDesKey,String inFilePath,String outFilePath)throws Exception{
+        File inFile=new File(inFilePath);
+        File outFile=new File(outFilePath);
+        if (!outFile.exists()) {
+            outFile.createNewFile();
+        }
+        unEntryFile( threeDesKey, inFile, outFile);
+    }
+
+    /**
+     * 解密文件(传递文件)
+     * @param threeDesKey 密钥
+     * @param inFile 要解密的文件
+     * @param outFile 解密输出文件(如果没有该文件,则新建此文件)
+     * @throws Exception
+     */
+    public static void unEntryFile(String threeDesKey,File inFile,File outFile)throws Exception{
+        if (!outFile.exists()) {
+            outFile.createNewFile();
+        }
+        FileInputStream fis=new FileInputStream(inFile);
+        FileOutputStream outFos = new FileOutputStream(outFile);
+        //解密
+        InputStream decryptInputStream = TripleDesTool.decryptMode(threeDesKey, fis);
+        int number = 0;
+        byte[] buffer = new byte[512];
+        while ((number = decryptInputStream.read(buffer)) != -1) {
+            outFos.write(buffer, 0, number);
+        }
+        outFos.close();
+        decryptInputStream.close();
+        fis.close();
+    }
+//    private static InputStream alipayDownloadInputStream(String threeDesKey, InputStream fileInputStream) throws IOException {
+//        InputStream decryptInputStream = TripleDesTool.decryptMode(threeDesKey, fileInputStream);
+//        // 设置流以解密模式输出
+//        ZipInputStream zipIn = new ZipInputStream(decryptInputStream);
+//        if (zipIn.getNextEntry() == null) {
+//            return null;
+//        }
+//        return zipIn;
+//    }
 //
 //    /**
 //     * 处理tar.gz文件解密输出
