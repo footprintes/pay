@@ -27,16 +27,16 @@ public class TestController {
     @Resource
     private Environment environment;
 
-    @Value("${comTest}")
-    private String comTest;
+//    @Value("${comTest}")
+//    private String comTest;
 
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String hello() throws Exception {
         return helloService.hello();
     }
 
-    @RequestMapping(value = "/test", method = RequestMethod.GET)
-    public String test(){
-        return comTest;
-    }
+//    @RequestMapping(value = "/test", method = RequestMethod.GET)
+//    public String test(){
+//        return comTest;
+//    }
 }
