@@ -60,7 +60,6 @@ public class OnlineWithdrawalRes extends BaseRes{
         return subAcctNo;
     }
 
-    @XmlAttribute(name = "SubAcctNo")
     public void setSubAcctNo(String subAcctNo) {
         this.subAcctNo = subAcctNo;
     }
@@ -69,7 +68,6 @@ public class OnlineWithdrawalRes extends BaseRes{
         return bindCardNo;
     }
 
-    @XmlAttribute(name = "BindCardNo")
     public void setBindCardNo(String bindCardNo) {
         this.bindCardNo = bindCardNo;
     }
@@ -78,7 +76,6 @@ public class OnlineWithdrawalRes extends BaseRes{
         return amount;
     }
 
-    @XmlAttribute(name = "Amount")
     public void setAmount(String amount) {
         this.amount = amount;
     }
@@ -87,7 +84,6 @@ public class OnlineWithdrawalRes extends BaseRes{
         return currency;
     }
 
-    @XmlAttribute(name = "Currency")
     public void setCurrency(String currency) {
         this.currency = currency;
     }
@@ -96,7 +92,6 @@ public class OnlineWithdrawalRes extends BaseRes{
         return theirRef;
     }
 
-    @XmlAttribute(name = "TheirRef")
     public void setTheirRef(String theirRef) {
         this.theirRef = theirRef;
     }
@@ -105,7 +100,6 @@ public class OnlineWithdrawalRes extends BaseRes{
         return purpose;
     }
 
-    @XmlAttribute(name = "Purpose")
     public void setPurpose(String purpose) {
         this.purpose = purpose;
     }
@@ -114,7 +108,6 @@ public class OnlineWithdrawalRes extends BaseRes{
         return attach;
     }
 
-    @XmlAttribute(name = "Attach")
     public void setAttach(String attach) {
         this.attach = attach;
     }
@@ -123,7 +116,6 @@ public class OnlineWithdrawalRes extends BaseRes{
         return memoInfo;
     }
 
-    @XmlAttribute(name = "MemoInfo")
     public void setMemoInfo(String memoInfo) {
         this.memoInfo = memoInfo;
     }
@@ -132,7 +124,6 @@ public class OnlineWithdrawalRes extends BaseRes{
         return bizDate;
     }
 
-    @XmlAttribute(name = "BizDate")
     public void setBizDate(String bizDate) {
         this.bizDate = bizDate;
     }

@@ -39,7 +39,6 @@ public class BindCardChangeRes extends BaseRes{
         return subAcctNo;
     }
 
-    @XmlAttribute(name = "SubAcctNo")
     public void setSubAcctNo(String subAcctNo) {
         this.subAcctNo = subAcctNo;
     }
@@ -48,7 +47,6 @@ public class BindCardChangeRes extends BaseRes{
         return productCd;
     }
 
-    @XmlAttribute(name = "ProductCd")
     public void setProductCd(String productCd) {
         this.productCd = productCd;
     }
@@ -57,7 +55,6 @@ public class BindCardChangeRes extends BaseRes{
         return custName;
     }
 
-    @XmlAttribute(name = "CustName")
     public void setCustName(String custName) {
         this.custName = custName;
     }
@@ -66,7 +63,6 @@ public class BindCardChangeRes extends BaseRes{
         return newCardNo;
     }
 
-    @XmlAttribute(name = "NewCardNo")
     public void setNewCardNo(String newCardNo) {
         this.newCardNo = newCardNo;
     }
@@ -75,7 +71,6 @@ public class BindCardChangeRes extends BaseRes{
         return newReservedPhone;
     }
 
-    @XmlAttribute(name = "NewReservedPhone")
     public void setNewReservedPhone(String newReservedPhone) {
         this.newReservedPhone = newReservedPhone;
     }

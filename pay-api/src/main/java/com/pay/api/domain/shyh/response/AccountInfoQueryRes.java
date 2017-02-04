@@ -36,7 +36,6 @@ public class AccountInfoQueryRes extends BaseRes {
         return idNo;
     }
 
-    @XmlAttribute(name = "IdNo")
     public void setIdNo(String idNo) {
         this.idNo = idNo;
     }
@@ -45,7 +44,6 @@ public class AccountInfoQueryRes extends BaseRes {
         return eacctNo;
     }
 
-    @XmlAttribute(name = "EacctNo")
     public void setEacctNo(String eacctNo) {
         this.eacctNo = eacctNo;
     }
@@ -54,7 +52,6 @@ public class AccountInfoQueryRes extends BaseRes {
         return custName;
     }
 
-    @XmlAttribute(name = "CustName")
     public void setCustName(String custName) {
         this.custName = custName;
     }
@@ -63,7 +60,6 @@ public class AccountInfoQueryRes extends BaseRes {
         return txnInfo;
     }
 
-    @XmlElement(name = "TxnInfo")
     public void setTxnInfo(List<FundAccountInfo> txnInfo) {
         this.txnInfo = txnInfo;
     }

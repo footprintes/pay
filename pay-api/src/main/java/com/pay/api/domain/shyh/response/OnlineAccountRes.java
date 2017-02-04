@@ -84,7 +84,6 @@ public class OnlineAccountRes extends BaseRes{
         return coopCustNo;
     }
 
-    @XmlAttribute(name = "CoopCustNo")
     public void setCoopCustNo(String coopCustNo) {
         this.coopCustNo = coopCustNo;
     }
@@ -93,7 +92,6 @@ public class OnlineAccountRes extends BaseRes{
         return productCd;
     }
 
-    @XmlAttribute(name = "ProductCd")
     public void setProductCd(String productCd) {
         this.productCd = productCd;
     }
@@ -102,7 +100,6 @@ public class OnlineAccountRes extends BaseRes{
         return custName;
     }
 
-    @XmlAttribute(name = "CustName")
     public void setCustName(String custName) {
         this.custName = custName;
     }
@@ -111,7 +108,6 @@ public class OnlineAccountRes extends BaseRes{
         return idNo;
     }
 
-    @XmlAttribute(name = "IdNo")
     public void setIdNo(String idNo) {
         this.idNo = idNo;
     }
@@ -120,7 +116,6 @@ public class OnlineAccountRes extends BaseRes{
         return sign;
     }
 
-    @XmlAttribute(name = "Sign")
     public void setSign(String sign) {
         this.sign = sign;
     }
@@ -129,7 +124,6 @@ public class OnlineAccountRes extends BaseRes{
         return fundCode;
     }
 
-    @XmlAttribute(name = "FundCode")
     public void setFundCode(String fundCode) {
         this.fundCode = fundCode;
     }
@@ -138,7 +132,6 @@ public class OnlineAccountRes extends BaseRes{
         return acctOpenResult;
     }
 
-    @XmlAttribute(name = "AcctOpenResult")
     public void setAcctOpenResult(String acctOpenResult) {
         this.acctOpenResult = acctOpenResult;
     }
@@ -147,7 +140,6 @@ public class OnlineAccountRes extends BaseRes{
         return acctOpenDesc;
     }
 
-    @XmlAttribute(name = "AcctOpenDesc")
     public void setAcctOpenDesc(String acctOpenDesc) {
         this.acctOpenDesc = acctOpenDesc;
     }
@@ -156,7 +148,6 @@ public class OnlineAccountRes extends BaseRes{
         return eacctNo;
     }
 
-    @XmlAttribute(name = "EacctNo")
     public void setEacctNo(String eacctNo) {
         this.eacctNo = eacctNo;
     }
@@ -165,7 +156,6 @@ public class OnlineAccountRes extends BaseRes{
         return subAcctNo;
     }
 
-    @XmlAttribute(name = "SubAcctNo")
     public void setSubAcctNo(String subAcctNo) {
         this.subAcctNo = subAcctNo;
     }
@@ -174,7 +164,6 @@ public class OnlineAccountRes extends BaseRes{
         return fundAcctOpenResult;
     }
 
-    @XmlAttribute(name = "FundAcctOpenResult")
     public void setFundAcctOpenResult(String fundAcctOpenResult) {
         this.fundAcctOpenResult = fundAcctOpenResult;
     }
@@ -183,7 +172,6 @@ public class OnlineAccountRes extends BaseRes{
         return fundAcctOpenDesc;
     }
 
-    @XmlAttribute(name = "FundAcctOpenDesc")
     public void setFundAcctOpenDesc(String fundAcctOpenDesc) {
         this.fundAcctOpenDesc = fundAcctOpenDesc;
     }
@@ -192,7 +180,6 @@ public class OnlineAccountRes extends BaseRes{
         return fundAcct;
     }
 
-    @XmlAttribute(name = "FundAcct")
     public void setFundAcct(String fundAcct) {
         this.fundAcct = fundAcct;
     }
@@ -201,7 +188,6 @@ public class OnlineAccountRes extends BaseRes{
         return fundTxnAcct;
     }
 
-    @XmlAttribute(name = "FundTxnAcct")
     public void setFundTxnAcct(String fundTxnAcct) {
         this.fundTxnAcct = fundTxnAcct;
     }

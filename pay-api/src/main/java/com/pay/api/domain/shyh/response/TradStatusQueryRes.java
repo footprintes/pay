@@ -49,7 +49,6 @@ public class TradStatusQueryRes extends BaseRes {
         return ChannelId;
     }
 
-    @XmlAttribute(name = "ChannelId")
     public void setChannelId(String channelId) {
         ChannelId = channelId;
     }
@@ -58,7 +57,6 @@ public class TradStatusQueryRes extends BaseRes {
         return oriRqUID;
     }
 
-    @XmlAttribute(name = "OriRqUID")
     public void setOriRqUID(String oriRqUID) {
         this.oriRqUID = oriRqUID;
     }
@@ -67,7 +65,6 @@ public class TradStatusQueryRes extends BaseRes {
         return respTxnNo;
     }
 
-    @XmlAttribute(name = "RespTxnNo")
     public void setRespTxnNo(String respTxnNo) {
         this.respTxnNo = respTxnNo;
     }
@@ -76,7 +73,6 @@ public class TradStatusQueryRes extends BaseRes {
         return amt;
     }
 
-    @XmlAttribute(name = "Amt")
     public void setAmt(String amt) {
         this.amt = amt;
     }
@@ -85,7 +81,6 @@ public class TradStatusQueryRes extends BaseRes {
         return tranDate;
     }
 
-    @XmlAttribute(name = "TranDate")
     public void setTranDate(String tranDate) {
         this.tranDate = tranDate;
     }
@@ -94,7 +89,6 @@ public class TradStatusQueryRes extends BaseRes {
         return txnStatus;
     }
 
-    @XmlAttribute(name = "TxnStatus")
     public void setTxnStatus(String txnStatus) {
         this.txnStatus = txnStatus;
     }
@@ -103,7 +97,6 @@ public class TradStatusQueryRes extends BaseRes {
         return txnResult;
     }
 
-    @XmlAttribute(name = "TxnResult")
     public void setTxnResult(String txnResult) {
         this.txnResult = txnResult;
     }

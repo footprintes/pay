@@ -50,7 +50,6 @@ public class TradDetailInfo implements Serializable {
         return txnRef;
     }
 
-    @XmlAttribute(name = "TxnRef")
     public void setTxnRef(String txnRef) {
         this.txnRef = txnRef;
     }
@@ -59,7 +58,6 @@ public class TradDetailInfo implements Serializable {
         return txnBsnId;
     }
 
-    @XmlAttribute(name = "TxnBsnId")
     public void setTxnBsnId(String txnBsnId) {
         this.txnBsnId = txnBsnId;
     }
@@ -68,7 +66,6 @@ public class TradDetailInfo implements Serializable {
         return txnDate;
     }
 
-    @XmlAttribute(name = "TxnDate")
     public void setTxnDate(String txnDate) {
         this.txnDate = txnDate;
     }
@@ -77,7 +74,6 @@ public class TradDetailInfo implements Serializable {
         return txnTime;
     }
 
-    @XmlAttribute(name = "TxnTime")
     public void setTxnTime(String txnTime) {
         this.txnTime = txnTime;
     }
@@ -86,7 +82,6 @@ public class TradDetailInfo implements Serializable {
         return flowCode;
     }
 
-    @XmlAttribute(name = "FlowCode")
     public void setFlowCode(String flowCode) {
         this.flowCode = flowCode;
     }
@@ -95,7 +90,6 @@ public class TradDetailInfo implements Serializable {
         return txnAmt;
     }
 
-    @XmlAttribute(name = "TxnAmt")
     public void setTxnAmt(String txnAmt) {
         this.txnAmt = txnAmt;
     }
@@ -104,7 +98,6 @@ public class TradDetailInfo implements Serializable {
         return theirRef;
     }
 
-    @XmlAttribute(name = "TheirRef")
     public void setTheirRef(String theirRef) {
         this.theirRef = theirRef;
     }

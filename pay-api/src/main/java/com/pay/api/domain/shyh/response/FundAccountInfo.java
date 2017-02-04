@@ -50,7 +50,6 @@ public class FundAccountInfo implements Serializable {
         return productParam;
     }
 
-    @XmlAttribute(name = "ProductParam")
     public void setProductParam(String productParam) {
         this.productParam = productParam;
     }
@@ -59,7 +58,6 @@ public class FundAccountInfo implements Serializable {
         return subAcctNo;
     }
 
-    @XmlAttribute(name = "SubAcctNo")
     public void setSubAcctNo(String subAcctNo) {
         this.subAcctNo = subAcctNo;
     }
@@ -68,7 +66,6 @@ public class FundAccountInfo implements Serializable {
         return mobllePhone;
     }
 
-    @XmlAttribute(name = "MobllePhone")
     public void setMobllePhone(String mobllePhone) {
         this.mobllePhone = mobllePhone;
     }
@@ -77,7 +74,6 @@ public class FundAccountInfo implements Serializable {
         return bindCardNo;
     }
 
-    @XmlAttribute(name = "BindCardNo")
     public void setBindCardNo(String bindCardNo) {
         this.bindCardNo = bindCardNo;
     }
@@ -86,7 +82,6 @@ public class FundAccountInfo implements Serializable {
         return fundCode;
     }
 
-    @XmlAttribute(name = "FundCode")
     public void setFundCode(String fundCode) {
         this.fundCode = fundCode;
     }
@@ -95,7 +90,6 @@ public class FundAccountInfo implements Serializable {
         return fundAcct;
     }
 
-    @XmlAttribute(name = "FundAcct")
     public void setFundAcct(String fundAcct) {
         this.fundAcct = fundAcct;
     }
@@ -104,7 +98,6 @@ public class FundAccountInfo implements Serializable {
         return fundTxnAcct;
     }
 
-    @XmlAttribute(name = "FundTxnAcct")
     public void setFundTxnAcct(String fundTxnAcct) {
         this.fundTxnAcct = fundTxnAcct;
     }

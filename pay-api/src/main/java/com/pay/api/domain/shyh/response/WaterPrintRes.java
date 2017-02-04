@@ -19,7 +19,6 @@ public class WaterPrintRes extends BaseRes {
         return channelId;
     }
 
-    @XmlAttribute(name = "ChannelId")
     public void setChannelId(String channelId) {
         this.channelId = channelId;
     }

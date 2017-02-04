@@ -44,7 +44,6 @@ public class BalanceQueryRes extends BaseRes{
         return subAcctNo;
     }
 
-    @XmlAttribute(name = "SubAcctNo")
     public void setSubAcctNo(String subAcctNo) {
         this.subAcctNo = subAcctNo;
     }
@@ -53,7 +52,6 @@ public class BalanceQueryRes extends BaseRes{
         return avaiBal;
     }
 
-    @XmlAttribute(name = "AvaiBal")
     public void setAvaiBal(String avaiBal) {
         this.avaiBal = avaiBal;
     }
@@ -62,7 +60,6 @@ public class BalanceQueryRes extends BaseRes{
         return workingBal;
     }
 
-    @XmlAttribute(name = "WorkingBal")
     public void setWorkingBal(String workingBal) {
         this.workingBal = workingBal;
     }
@@ -71,7 +68,6 @@ public class BalanceQueryRes extends BaseRes{
         return fundShare;
     }
 
-    @XmlAttribute(name = "FundShare")
     public void setFundShare(String fundShare) {
         this.fundShare = fundShare;
     }
@@ -80,7 +76,6 @@ public class BalanceQueryRes extends BaseRes{
         return avaiFundShare;
     }
 
-    @XmlAttribute(name = "AvaiFundShare")
     public void setAvaiFundShare(String avaiFundShare) {
         this.avaiFundShare = avaiFundShare;
     }
@@ -89,7 +84,6 @@ public class BalanceQueryRes extends BaseRes{
         return earningsYesterday;
     }
 
-    @XmlAttribute(name = "EarningsYesterday")
     public void setEarningsYesterday(String earningsYesterday) {
         this.earningsYesterday = earningsYesterday;
     }

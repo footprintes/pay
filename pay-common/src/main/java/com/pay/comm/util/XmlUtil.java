@@ -1,6 +1,5 @@
 package com.pay.comm.util;
 
-import com.alibaba.fastjson.JSON;
 import com.pay.api.domain.shyh.response.CommonRsHdr;
 import org.apache.commons.beanutils.BeanUtils;
 import org.dom4j.Document;
@@ -41,6 +40,9 @@ public class XmlUtil {
                 if ("CommonRsHdr".equals(element1.getName())) {
                     //处理报文头
                     parseHeader(element1, obj);
+                } else if ("TxnInfo".equals(element1.getName())) {
+                    //组装多条信息
+                    parseTxnInfo(element1, obj, itfName);
                 } else {
                     BeanUtils.setProperty(obj, fieldName, element1.getText());
                 }
@@ -64,5 +66,17 @@ public class XmlUtil {
             }
             BeanUtils.setProperty(obj, "commonRsHdr", commonRsHdr);
         }
+    }
+
+    /**
+     * 组装多条信息
+     *
+     * @param element
+     * @param obj
+     * @param itfName
+     * @throws Exception
+     */
+    private static void parseTxnInfo(Element element, Object obj, String itfName) throws Exception {
+        System.out.println(element.getStringValue());
     }
 }

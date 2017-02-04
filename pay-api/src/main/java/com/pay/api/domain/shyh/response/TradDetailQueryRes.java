@@ -31,7 +31,6 @@ public class TradDetailQueryRes extends BaseRes {
         return recordNum;
     }
 
-    @XmlAttribute(name = "RecordNum")
     public void setRecordNum(String recordNum) {
         this.recordNum = recordNum;
     }
@@ -40,7 +39,6 @@ public class TradDetailQueryRes extends BaseRes {
         return pageCount;
     }
 
-    @XmlAttribute(name = "PageCount")
     public void setPageCount(String pageCount) {
         this.pageCount = pageCount;
     }
@@ -49,7 +47,6 @@ public class TradDetailQueryRes extends BaseRes {
         return txnInfo;
     }
 
-    @XmlElement(name = "TxnInfo")
     public void setTxnInfo(List<TradDetailInfo> txnInfo) {
         this.txnInfo = txnInfo;
     }

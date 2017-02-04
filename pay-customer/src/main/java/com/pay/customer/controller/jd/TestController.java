@@ -1,7 +1,11 @@
 package com.pay.customer.controller.jd;
 
-import com.alibaba.fastjson.JSON;
+import com.pay.api.domain.shyh.request.AccountInfoQueryReq;
+import com.pay.api.domain.shyh.request.BindCardChangeReq;
 import com.pay.api.domain.shyh.request.OnlineAccountReq;
+import com.pay.api.domain.shyh.response.AccountInfoQueryRes;
+import com.pay.api.domain.shyh.response.BindCardChangeRes;
+import com.pay.api.domain.shyh.response.OnlineAccountRes;
 import com.pay.api.service.shyh.ShBankService;
 import com.pay.api.service.sys.HelloService;
 import com.pay.api.service.sys.SysSerialNumberService;
@@ -11,6 +15,7 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -51,7 +56,8 @@ public class TestController {
      * @return
      */
     @RequestMapping(value = "onlineAccount", method = RequestMethod.GET)
-    public void onlineAccount() {
+    @ResponseBody
+    public OnlineAccountRes onlineAccount() throws Exception {
         OnlineAccountReq onlineAccountReq = new OnlineAccountReq();
         //合作方客户号
         onlineAccountReq.setCoopCustNo(sysSerialNumberService.generateSerialNumberByModelCode(ShBankConstant.XTR0001));
@@ -79,10 +85,58 @@ public class TestController {
         onlineAccountReq.setHomeAddr("");
         //职业
         onlineAccountReq.setOccupation("");
-        try {
-            System.out.println(JSON.toJSONString(shBankService.onlineAccount(onlineAccountReq)));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        return shBankService.onlineAccount(onlineAccountReq);
+    }
+
+    /**
+     * 绑定卡变更
+     *
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "bindCardChange", method = RequestMethod.GET)
+    @ResponseBody
+    public BindCardChangeRes bindCardChange() throws Exception {
+        BindCardChangeReq bindCardChangeReq = new BindCardChangeReq();
+        //子账号
+        bindCardChangeReq.setSubAcctNo("623185009900000305");
+        //产品参数
+        bindCardChangeReq.setProductCd("xtrBalFinancing");
+        //姓名
+        bindCardChangeReq.setCustName("张峰");
+        //身份证号
+        bindCardChangeReq.setIdNo("430421199003192752");
+        //原绑定银行卡号
+        bindCardChangeReq.setBindCardNo("6226200203289004");
+        //新绑定银行卡号
+        bindCardChangeReq.setNewCardNo("6226200203289005");
+        //银行卡预留手机号
+        bindCardChangeReq.setReservedPhone("17775649963");
+        //新银行卡预留手机号
+        bindCardChangeReq.setNewReservedPhone("17775649963");
+        //修改类型
+        bindCardChangeReq.setModiType("00");
+        return shBankService.bindCardChange(bindCardChangeReq);
+    }
+
+    /**
+     * 账户信息查询
+     *
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "accountInfoQuery", method = RequestMethod.GET)
+    @ResponseBody
+    public AccountInfoQueryRes accountInfoQuery() throws Exception {
+        AccountInfoQueryReq accountInfoQueryReq = new AccountInfoQueryReq();
+        //E账户主账户号
+        accountInfoQueryReq.setEacctNo("623185009000136058");
+        //客户身份证
+        accountInfoQueryReq.setIdNo("430421199003192752");
+        //产品参数
+        accountInfoQueryReq.setProductParam("");
+        //子账户
+        accountInfoQueryReq.setSubAcctNo("");
+        return shBankService.accountInfoQuery(accountInfoQueryReq);
     }
 }

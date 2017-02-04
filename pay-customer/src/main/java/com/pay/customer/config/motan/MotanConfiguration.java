@@ -6,6 +6,9 @@ import com.weibo.api.motan.config.springsupport.ProtocolConfigBean;
 import com.weibo.api.motan.config.springsupport.RegistryConfigBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
+
+import javax.annotation.Resource;
 
 /**
  * <p>motan消费端配置</p>
@@ -15,6 +18,9 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class MotanConfiguration {
+
+    @Resource
+    private Environment environment;
 
     @Bean
     public AnnotationBean motanAnnotationBean() {
@@ -37,7 +43,7 @@ public class MotanConfiguration {
     public RegistryConfigBean registryConfig() {
         RegistryConfigBean config = new RegistryConfigBean();
         config.setRegProtocol("zookeeper");
-        config.setAddress("127.0.0.1:2181");
+        config.setAddress(environment.getProperty("zookeeper.address"));
         return config;
     }
 

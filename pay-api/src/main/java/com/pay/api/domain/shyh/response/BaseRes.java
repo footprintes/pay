@@ -25,7 +25,6 @@ public class BaseRes implements Serializable {
         return signature;
     }
 
-    @XmlAttribute(name = "Signature")
     public void setSignature(String signature) {
         this.signature = signature;
     }
@@ -34,7 +33,6 @@ public class BaseRes implements Serializable {
         return commonRsHdr;
     }
 
-    @XmlElement(name = "CommonRsHdr")
     public void setCommonRsHdr(CommonRsHdr commonRsHdr) {
         this.commonRsHdr = commonRsHdr;
     }
