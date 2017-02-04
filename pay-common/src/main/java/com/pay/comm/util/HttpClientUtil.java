@@ -17,17 +17,17 @@ public class HttpClientUtil {
 	 * 发送json格式请求到指定地址
 	 * 
 	 * @param url
-	 * @param json
+	 * @param content
 	 * @return
 	 */
 	public static String sendRequest(String url, String content, String contentType) {
-		int timeout = 5000; // 超时时间
+//		int timeout = 5000; // 超时时间
 		String strResult = "";
 		HttpClient httpClient = new DefaultHttpClient();
 		try {
 			HttpParams httpParams = httpClient.getParams();
-			httpParams.setIntParameter(CoreConnectionPNames.CONNECTION_TIMEOUT, timeout);
-			httpParams.setIntParameter(CoreConnectionPNames.SO_TIMEOUT, timeout);
+//			httpParams.setIntParameter(CoreConnectionPNames.CONNECTION_TIMEOUT, timeout);
+//			httpParams.setIntParameter(CoreConnectionPNames.SO_TIMEOUT, timeout);
 			HttpPost httpPost = new HttpPost(url); // 创建HttpPost
 			StringEntity se = new StringEntity(content, "UTF-8");
 			se.setContentType(new BasicHeader(HTTP.CONTENT_TYPE, contentType));

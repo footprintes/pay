@@ -1,6 +1,6 @@
 package com.pay.api.domain.shyh.request;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import java.io.Serializable;
 
 /**
  * <p>绑定卡变更-请求</p>
@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlAttribute;
  * @author 张峰 zfvip_it@163.com
  * @createTime: 2017/1/19 13:25
  */
-public class BindCardChangeReq {
+public class BindCardChangeReq implements Serializable {
 
     /**
      * 子账号

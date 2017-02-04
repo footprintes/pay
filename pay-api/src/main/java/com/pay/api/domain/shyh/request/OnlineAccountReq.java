@@ -1,6 +1,7 @@
 package com.pay.api.domain.shyh.request;
 
 import javax.xml.bind.annotation.XmlAttribute;
+import java.io.Serializable;
 
 /**
  * <p>联机开户-请求</p>
@@ -8,7 +9,7 @@ import javax.xml.bind.annotation.XmlAttribute;
  * @author 张峰 zfvip_it@163.com
  * @createTime: 2017/1/19 11:46
  */
-public class OnlineAccountReq {
+public class OnlineAccountReq implements Serializable {
 
     /**
      * 合作方客户账号

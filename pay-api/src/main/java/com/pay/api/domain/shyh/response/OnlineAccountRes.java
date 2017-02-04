@@ -80,11 +80,6 @@ public class OnlineAccountRes extends BaseRes{
      */
     private String fundTxnAcct;
 
-    /**
-     * 签名数据
-     */
-    private String signature;
-
     public String getCoopCustNo() {
         return coopCustNo;
     }

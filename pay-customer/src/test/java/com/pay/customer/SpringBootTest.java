@@ -1,48 +1,48 @@
-package com.pay.customer.controller.jd;
+package com.pay.customer;
 
 import com.alibaba.fastjson.JSON;
+import com.pay.api.domain.shyh.request.BindCardChangeReq;
 import com.pay.api.domain.shyh.request.OnlineAccountReq;
-import com.pay.api.service.shyh.ShBankService;
 import com.pay.api.service.sys.HelloService;
-import com.pay.api.service.sys.SysSerialNumberService;
-import com.pay.comm.constant.ShBankConstant;
 import com.weibo.api.motan.config.springsupport.annotation.MotanReferer;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.core.env.Environment;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
+import java.util.concurrent.ExecutionException;
 
 /**
  * <p>类说明</p>
  *
  * @author 张峰 zfvip_it@163.com
- * @createTime: 2017/1/16 14:03
+ * @createTime: 2017/1/12 14:17
  */
-@RefreshScope
-@RestController
-public class TestController {
+@RunWith(SpringJUnit4ClassRunner.class)
+@SpringApplicationConfiguration(classes = Application.class)// 指定spring-boot的启动类
+public class SpringBootTest {
+
+    private static Logger LOGGER = LoggerFactory.getLogger(SpringBootTest.class);
 
     @MotanReferer(basicReferer = "basicRefererConfig")
     private HelloService helloService;
 
-    @MotanReferer(basicReferer = "basicRefererConfig")
-    private ShBankService shBankService;
-
-    @MotanReferer(basicReferer = "basicRefererConfig")
-    private SysSerialNumberService sysSerialNumberService;
+//    @MotanReferer(basicReferer = "basicRefererConfig")
+//    private ShBankService shBankService;
+//
+//    @MotanReferer(basicReferer = "basicRefererConfig")
+//    private SysSerialNumberService sysSerialNumberService;
 
     @Resource
-    private Environment environment;
+    Environment environment;
 
-//    @Value("${comTest}")
-//    private String comTest;
-
-    @RequestMapping(value = "/hello", method = RequestMethod.GET)
-    public String hello() throws Exception {
-        return helloService.hello();
+    @Test
+    public void jdTest() throws ExecutionException, InterruptedException {
+        LOGGER.info(JSON.toJSONString(helloService.hello()));
     }
 
     /**
@@ -50,11 +50,11 @@ public class TestController {
      *
      * @return
      */
-    @RequestMapping(value = "onlineAccount", method = RequestMethod.GET)
+    @Test
     public void onlineAccount() {
         OnlineAccountReq onlineAccountReq = new OnlineAccountReq();
         //合作方客户号
-        onlineAccountReq.setCoopCustNo(sysSerialNumberService.generateSerialNumberByModelCode(ShBankConstant.XTR0001));
+//        onlineAccountReq.setCoopCustNo(sysSerialNumberService.generateSerialNumberByModelCode(ShBankConstant.XTR0001));
         //理财产品参数
         onlineAccountReq.setProductCd("xtrBalFinancing");
         //姓名
@@ -80,9 +80,19 @@ public class TestController {
         //职业
         onlineAccountReq.setOccupation("");
         try {
-            System.out.println(JSON.toJSONString(shBankService.onlineAccount(onlineAccountReq)));
+//            System.out.println(JSON.toJSONString(shBankService.onlineAccount(onlineAccountReq)));
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * 绑定卡变更
+     *
+     * @return
+     * @throws Exception
+     */
+    public void bindCardChange() {
+        BindCardChangeReq bindCardChangeReq = new BindCardChangeReq();
     }
 }

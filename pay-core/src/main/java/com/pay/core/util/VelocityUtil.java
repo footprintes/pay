@@ -1,12 +1,14 @@
 package com.pay.core.util;
 
 import com.koalii.svs.SvsSign;
+import com.koalii.svs.SvsVerify;
 import com.pay.api.domain.shyh.request.BalanceQueryReq;
 import com.pay.comm.util.DateUtil;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
+import org.apache.velocity.app.Velocity;
 import org.apache.velocity.app.VelocityEngine;
 import org.apache.velocity.runtime.RuntimeConstants;
 import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
@@ -14,10 +16,7 @@ import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
 import java.io.File;
 import java.io.StringWriter;
 import java.lang.reflect.Field;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 /**
  * <p>类说明</p>
@@ -35,6 +34,7 @@ public class VelocityUtil {
         try {
             ve.setProperty(RuntimeConstants.RESOURCE_LOADER, "classpath");
             ve.setProperty("classpath.resource.loader.class", ClasspathResourceLoader.class.getName());
+            ve.setProperty(Velocity.FILE_RESOURCE_LOADER_CACHE, "true");
             ve.init();
             signer.initSignCertAndKey(getRootPath() + "/classes/cert/shyh/110310018000011.pfx", "123456");
         } catch (Exception e) {
@@ -76,7 +76,7 @@ public class VelocityUtil {
      * @param obj
      * @param rqUID @return
      */
-    private static String getSignature(Object obj, String rqUID) throws Exception {
+    public static String getSignature(Object obj, String rqUID) throws Exception {
         //获取报文头
         TreeMap<String, String> treeMap = getCommonRqHdr(rqUID);
         Class c = obj.getClass();
@@ -85,7 +85,7 @@ public class VelocityUtil {
             for (Field field : fields) {
                 String value = BeanUtils.getProperty(obj, field.getName());
                 if (StringUtils.isNotBlank(value)) {
-                    treeMap.put(field.getName(), value);
+                    treeMap.put(field.getName().substring(0, 1).toUpperCase()+field.getName().substring(1, field.getName().length()), value);
                 }
             }
         }
@@ -110,7 +110,7 @@ public class VelocityUtil {
                 sb.append(e.getValue());
                 sb.append("&");
             }
-            sb.substring(0, sb.length() - 1);
+            return sb.substring(0, sb.length() - 1);
         }
         return sb.toString();
     }
@@ -167,7 +167,7 @@ public class VelocityUtil {
         Field[] fields = c.getDeclaredFields();
         if (fields != null && fields.length > 0) {
             for (Field field : fields) {
-                map.put(field.getName(), BeanUtils.getProperty(obj, field.getName()));
+                map.put(field.getName().substring(0, 1).toUpperCase()+field.getName().substring(1, field.getName().length()), BeanUtils.getProperty(obj, field.getName()));
             }
         }
         return map;
@@ -214,6 +214,11 @@ public class VelocityUtil {
 //        System.out.println("treeMap2=" + treeMap2);
         BalanceQueryReq balanceQueryReq = new BalanceQueryReq();
         balanceQueryReq.setSubAcctNo("11111111111111111111111111111");
+        System.out.println(getReqXmlStr(balanceQueryReq, "XTR001", "222222222222222222"));
+        System.out.println(getReqXmlStr(balanceQueryReq, "XTR001", "222222222222222222"));
+        System.out.println(getReqXmlStr(balanceQueryReq, "XTR001", "222222222222222222"));
+        System.out.println(getReqXmlStr(balanceQueryReq, "XTR001", "222222222222222222"));
+        System.out.println(getReqXmlStr(balanceQueryReq, "XTR001", "222222222222222222"));
         System.out.println(getReqXmlStr(balanceQueryReq, "XTR001", "222222222222222222"));
     }
 

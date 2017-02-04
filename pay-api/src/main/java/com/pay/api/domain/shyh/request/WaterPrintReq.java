@@ -1,6 +1,7 @@
 package com.pay.api.domain.shyh.request;
 
 import javax.xml.bind.annotation.XmlAttribute;
+import java.io.Serializable;
 
 /**
  * <p>流水打印申请-请求</p>
@@ -8,7 +9,7 @@ import javax.xml.bind.annotation.XmlAttribute;
  * @author 张峰 zfvip_it@163.com
  * @createTime: 2017/1/19 16:05
  */
-public class WaterPrintReq{
+public class WaterPrintReq implements Serializable {
 
     /**
      * 原交易流水号

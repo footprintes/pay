@@ -1,6 +1,7 @@
 package com.pay.api.domain.shyh.request;
 
 import javax.xml.bind.annotation.XmlAttribute;
+import java.io.Serializable;
 
 /**
  * <p>交易明细查询-请求</p>
@@ -8,7 +9,7 @@ import javax.xml.bind.annotation.XmlAttribute;
  * @author 张峰 zfvip_it@163.com
  * @createTime: 2017/1/19 14:40
  */
-public class TradDetailQueryReq {
+public class TradDetailQueryReq implements Serializable {
 
     /**
      * 余额理财子帐号

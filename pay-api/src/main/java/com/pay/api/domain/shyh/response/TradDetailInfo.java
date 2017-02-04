@@ -1,6 +1,7 @@
 package com.pay.api.domain.shyh.response;
 
 import javax.xml.bind.annotation.XmlAttribute;
+import java.io.Serializable;
 
 /**
  * <p>交易明细-响应</p>
@@ -8,7 +9,7 @@ import javax.xml.bind.annotation.XmlAttribute;
  * @author 张峰 zfvip_it@163.com
  * @createTime: 2017/1/19 14:50
  */
-public class TradDetailInfo {
+public class TradDetailInfo implements Serializable {
 
     /**
      * 主机流水号

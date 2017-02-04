@@ -6,6 +6,7 @@ import com.pay.comm.basic.BusinessException;
 import com.pay.comm.constant.SysSerialNumberConstant;
 import com.pay.comm.util.DateUtil;
 import com.pay.core.mapper.writer.sys.SysSerialNumberWriterMapper;
+import com.weibo.api.motan.config.springsupport.annotation.MotanService;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @author 张峰 zfvip_it@163.com
  * @createTime: 2017/1/15 16:40
  */
-@Service
+@MotanService
 public class SysSerialNumberServiceImpl implements SysSerialNumberService {
 
     @Resource

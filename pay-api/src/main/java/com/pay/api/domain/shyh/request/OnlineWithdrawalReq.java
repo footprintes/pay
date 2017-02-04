@@ -1,6 +1,7 @@
 package com.pay.api.domain.shyh.request;
 
 import javax.xml.bind.annotation.XmlAttribute;
+import java.io.Serializable;
 
 /**
  * <p>联机提现-请求</p>
@@ -8,7 +9,7 @@ import javax.xml.bind.annotation.XmlAttribute;
  * @author 张峰 zfvip_it@163.com
  * @createTime: 2017/1/19 13:42
  */
-public class OnlineWithdrawalReq {
+public class OnlineWithdrawalReq implements Serializable {
 
     /**
      * 余额理财子帐号

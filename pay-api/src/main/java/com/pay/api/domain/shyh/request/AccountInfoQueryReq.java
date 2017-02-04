@@ -1,6 +1,7 @@
 package com.pay.api.domain.shyh.request;
 
 import javax.xml.bind.annotation.XmlAttribute;
+import java.io.Serializable;
 
 /**
  * <p>账户信息查询-请求</p>
@@ -8,7 +9,7 @@ import javax.xml.bind.annotation.XmlAttribute;
  * @author 张峰 zfvip_it@163.com
  * @createTime: 2017/1/19 15:34
  */
-public class AccountInfoQueryReq {
+public class AccountInfoQueryReq implements Serializable{
 
     /**
      * E账户主账户号
