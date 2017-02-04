@@ -1,9 +1,11 @@
 package com.pay.customer.controller.jd;
 
 import com.pay.api.domain.shyh.request.AccountInfoQueryReq;
+import com.pay.api.domain.shyh.request.BalanceQueryReq;
 import com.pay.api.domain.shyh.request.BindCardChangeReq;
 import com.pay.api.domain.shyh.request.OnlineAccountReq;
 import com.pay.api.domain.shyh.response.AccountInfoQueryRes;
+import com.pay.api.domain.shyh.response.BalanceQueryRes;
 import com.pay.api.domain.shyh.response.BindCardChangeRes;
 import com.pay.api.domain.shyh.response.OnlineAccountRes;
 import com.pay.api.service.shyh.ShBankService;
@@ -120,6 +122,21 @@ public class TestController {
     }
 
     /**
+     * 资产查询-账户余额
+     *
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "balanceQuery", method = RequestMethod.GET)
+    @ResponseBody
+    public BalanceQueryRes balanceQuery() throws Exception{
+        BalanceQueryReq balanceQueryReq = new BalanceQueryReq();
+        //余额理财子账号
+        balanceQueryReq.setSubAcctNo("623185009900000305");
+        return shBankService.balanceQuery(balanceQueryReq);
+    }
+
+    /**
      * 账户信息查询
      *
      * @return
@@ -139,4 +156,6 @@ public class TestController {
         accountInfoQueryReq.setSubAcctNo("");
         return shBankService.accountInfoQuery(accountInfoQueryReq);
     }
+
+
 }
