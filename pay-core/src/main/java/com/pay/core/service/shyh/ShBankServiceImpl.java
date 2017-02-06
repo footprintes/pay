@@ -8,6 +8,7 @@ import com.pay.comm.constant.ShBankConstant;
 import com.pay.comm.util.HttpClientUtil;
 import com.pay.comm.util.XmlUtil;
 import com.pay.core.util.VelocityUtil;
+import com.weibo.api.motan.config.springsupport.annotation.MotanReferer;
 import com.weibo.api.motan.config.springsupport.annotation.MotanService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.core.env.Environment;
@@ -26,7 +27,7 @@ public class ShBankServiceImpl implements ShBankService {
     @Resource
     private Environment environment;
 
-    @Resource
+    @MotanReferer(basicReferer = "basicRefererConfig")
     private SysSerialNumberService sysSerialNumberService;
 
     /**

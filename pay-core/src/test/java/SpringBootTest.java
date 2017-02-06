@@ -1,9 +1,7 @@
 import com.alibaba.fastjson.JSON;
-import com.pay.api.service.sys.SysSerialNumberService;
-import com.pay.comm.util.DateUtil;
+import com.pay.api.service.sys.HelloService;
 import com.pay.core.Application;
 import com.pay.core.mapper.writer.jd.JdPayOrderWriterMapper;
-import com.pay.core.service.sys.SysSerialNumberServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -15,8 +13,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
-import java.util.List;
-import java.util.concurrent.*;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
 
 /**
  * <p>类说明</p>
@@ -42,8 +40,10 @@ public class SpringBootTest {
     @Resource
     private RedisTemplate redisTemplate;
 
+    //    @Resource
+//    private SysSerialNumberService sysSerialNumberService;
     @Resource
-    private SysSerialNumberService sysSerialNumberService;
+    private HelloService helloService;
 
     private ExecutorService pool;
 
@@ -53,6 +53,7 @@ public class SpringBootTest {
         LOGGER.info(JSON.toJSONString(writerJdbcTemplate.queryForList("select * from jd_pay_order")));
         LOGGER.info("商户交易号" + environment.getProperty("wepay.merchant.num"));
         LOGGER.info(JSON.toJSONString(jdPayOrderMapper.selectAll()));
+        LOGGER.info(helloService.generateSerialNumberByModelCode("CS"));
 //        LOGGER.info(JSON.toJSONString(jdPayOrderMapper.selectAll().size()));
 //        LOGGER.info(JSON.toJSONString(redisTemplate.opsForValue().get("abcd")));
 //        LOGGER.info(sysSerialNumberService.generateSerialNumberByModelCode("CS"));
@@ -63,7 +64,7 @@ public class SpringBootTest {
 //        LOGGER.info(sysSerialNumberService.generateSerialNumberByModelCode("CS"));
 //        LOGGER.info(sysSerialNumberService.generateSerialNumberByModelCode("CS"));
 //        LOGGER.info(sysSerialNumberService.generateSerialNumberByModelCode("CS"));
-        LOGGER.info(JSON.toJSONString(sysSerialNumberService.generateSerialNumberByModelCode("CS").length()));
+//        LOGGER.info(JSON.toJSONString(sysSerialNumberService.generateSerialNumberByModelCode("CS").length()));
 //        LOGGER.info(JSON.toJSONString(redisTemplate.opsForValue().get("CS" + SysSerialNumberServiceImpl.class.getName())));
 //        LOGGER.info(JSON.toJSONString(sysSerialNumberService.updatePreMaxNum("DS",100)));
 //        Long startTime = System.currentTimeMillis();

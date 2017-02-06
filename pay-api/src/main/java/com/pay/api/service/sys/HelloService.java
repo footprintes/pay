@@ -9,4 +9,6 @@ package com.pay.api.service.sys;
 public interface HelloService {
 
     String hello();
+
+    String generateSerialNumberByModelCode(String moduleCode);
 }

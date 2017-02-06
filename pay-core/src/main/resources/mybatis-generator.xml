@@ -56,7 +56,7 @@
         <!-- 配置表信息 -->
 
         <table schema="${jdbc_schema}" tableName="sys_serial_number"
-               domainObjectName="SysSerialNumber"
+               domainObjectName="SysSerialNumberBean"
 
                enableCountByExample="false"
                enableDeleteByExample="false"

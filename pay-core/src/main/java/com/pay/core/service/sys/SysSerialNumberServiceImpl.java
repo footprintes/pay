@@ -20,7 +20,6 @@ import java.util.concurrent.locks.ReentrantLock;
  * @author 张峰 zfvip_it@163.com
  * @createTime: 2017/1/15 16:40
  */
-@MotanService
 public class SysSerialNumberServiceImpl implements SysSerialNumberService {
 
     @Resource
